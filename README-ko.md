@@ -1,7 +1,7 @@
 # Zombie Microservices Workshop: 실습 가이드
 
 ## 개요
-[Zombie Microservices Workshop](http://aws.amazon.com/events/zombie-microservices-roadshow/)은 [AWS Lambda](http://aws.amazon.com/lambda/), Amazon API Gateway, Amazon DynamoDB와 기타 AWS 서비스를 기반으로 서버 없는(Serverless) 애플리케이션을 구축해 보는 실습 행사입니다.
+[Zombie Microservices Workshop](http://aws.amazon.com/events/zombie-microservices-roadshow/)은 [AWS Lambda](http://aws.amazon.com/lambda/), Amazon Cognito, Amazon API Gateway, Amazon DynamoDB와 기타 AWS 서비스를 기반으로 서버 없는(Serverless) 애플리케이션을 구축해 보는 실습 행사입니다.
 
 본 워크샵에서는 전 세계적인 좀비 확산 사태가 발생할 경우, AWS Lambda 생존자 구출 특공대의 일원으로서 생존자간 소통을 위한 시스템을 구축하는 업무를 완료하게 됩니다.
 
@@ -93,7 +93,7 @@ CloudFromation 만들 때, 이미 Cognito 통합 인증 서비스를 생성하�
 
 ![Navigate to the Cognito service](/Images/Cognito-Step1.png)
 
-Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **us-east-1 (Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), ap-northeast-1 (Tokyo)** 이외에서 CloudFormation을 실행하셨다면, 오른쪽 상단의 리전을 **us-east-1 (Virginia)**로 변경 후, Cognito 서비스로 들어가시기 바랍니다. 애플리케이션은 여러분이 만든 리전에 존재하고 있지만, 사용자 인증은 us-east-1의 Cognito 서비스를 이용하게 됩니다. 만약 위에 목록에 해당하는 리전에서 CloudFormation 스택을 실행하셨다면, 그 리전의 Cognito 서비스에서 진행하시면 됩니다. 
+Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **us-east-1 (Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), eu-central-1 (Frankfurt), ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ** 이외에서 CloudFormation을 실행하셨다면, 오른쪽 상단의 리전을 **us-east-1 (Virginia)**로 변경 후, Cognito 서비스로 들어가시기 바랍니다. 애플리케이션은 여러분이 만든 리전에 존재하고 있지만, 사용자 인증은 us-east-1의 Cognito 서비스를 이용하게 됩니다. 만약 위에 목록에 해당하는 리전에서 CloudFormation 스택을 실행하셨다면, 그 리전의 Cognito 서비스에서 진행하시면 됩니다. 
 
 콘솔에서 **Manage your User Pools**를 선택합니다. 이제 채팅 앱에서 사용할 사용자 디렉토리를 만들도록 하겠습니다. 
 

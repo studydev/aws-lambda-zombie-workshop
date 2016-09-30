@@ -129,7 +129,7 @@ Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **u
 
 9\. Apps 페이지에서는 **Add an app**을 선택합니다. **App Name** 텍스트 박스에서는 "Zombie Survivor Chat App"이라고 적고, **client secret 체크박스를 선택하지 않습니다.**. 그리고, **Set attribute read and write permissions**을 선택합니다. 앱에서 맞춤형 속성 값에 "writable" 접근 권한을 주어야 합니다. **Writable Attributes** 체크 박스에 **custom:slackuser, custom:slackteamdomain, custom:camp** 체크를 하고, 나머지는 그대로 둔 상태에서 **Create App**을 누르고, **Next step**을 선택합니다.
 
-10\. **Pre authentication** 드롭다운 메뉴에서 **Post confirmation** 트리거에서 "[Your CloudFormation Stack name]-CognitoLambdaTrigger"라는 Lambda 함수를 선택한 후, **Next step**을 누릅니다.
+10\. (중요) 여러 박스 중에 **Pre authentication** 와 **Post confirmation** 의 드롭다운 메뉴에서 "[Your CloudFormation Stack name]-CognitoLambdaTrigger"라는 Lambda 함수를 선택한 후, **Next step**을 누릅니다.
 
 * Cognito User Pools을 통해 개발자들은 사용자 가입 및 로그인 과정에서 맞춤형 진행 방식을 구현할 수 있습니다. 이러한 워크플로 로직은 Lambda Trigger를 통한 AWS Lambda 함수를 사용할 수 있습니다.
 
@@ -197,7 +197,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 22\. 이제 로그인 페이지가 보이면, **Sign Up** 버튼을 눌러 회원 가입을 해야 합니다.
 
-23\. 주어진 가입 양식을 채워넣습니다.
+23\. 주어진 가입 양식을 채워넣습니다. 단, 회원 가입 시 전화 번호에 대한 번호 인증이 진행됩니다. 따라서, 유효한 전화번호를 입력할 때는 미국 번호인 10자리 (예:  888-280-4331)를 넣으셔야 합니다.   
 
 * **Select your Camp**: 여러분이 살고 있는 지역을 입력합니다. 본 애플리케이션에서 현재 속성은 사용되지 않지만, 향후에 추가적으로 사용할 수 있습니다. 워크샵 실습을 종료한 후 부록에 있는 별도 도전 사항을 시도해 보시기 바랍니다.
 
@@ -381,7 +381,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 21\. /twilio POST 메소드의 Integration Request화면에서 **Body Mapping Templates**을 열어 **Add mapping template**을 누릅니다. "Content-Type" 텍스트 박스에는 **application/x-www-form-urlencoded**를 누르고, 작은 체크박스를 눌러 계속합니다. 체크 박스를 누르면, 팝업 창이 떠서 정확한 Content-Type을 입력했는지 확인 창이 나오는데, 이 때  **Yes, secure this integration**를 누릅니다. **Generate Template** 드롭다운과 함께 오른쪽에 새로운 영역이 보입니다. 드롭다운 메뉴를 눌러 **Method Request Passthrough**를 선택합니다.
 
-22\. "Template" 텍스트 편집기가 나오게 되는데, 여기에는 들어오는 Twilio 데이터를 JSON 객체로 바꾸는 VTL 변환 로직의 일부분을 입력하게 됩니다. 편집기에서 **delete all of the pre-filled content**를 선택하고 아래 코드를 입력합니다.
+22\. "Template" 텍스트 편집기가 나오게 되는데, 여기에는 들어오는 Twilio 데이터를 JSON 객체로 바꾸는 VTL 변환 로직의 일부분을 입력하게 됩니다. 편집기에서 **기존에 적혀 있는 코드를 삭제**하고 아래 코드를 입력합니다.
 
 ```
 {"postBody" : "$input.path('$')"}
@@ -628,23 +628,27 @@ Intel Edison -> SNS topic -> 토픽에 트리거 된 AWS Lambda 함수
 3\. 이제 함께 사용할 SNS 토픽을 설정하였습니다. 토픽을 만든 리전과 함께 Topic ARN 주소를 복사를 하고 다음 단계로 넘어갑니다.
 
 ####Intel Edison에 애플리케이션 설치
-**만약, AWS가 제공하는 워크샵에 참여하시는 중이시라면, 무시하셔도 됩니다. 사용자가 이용할 인텔 에디슨은 이미 설정되어 있습니다.**
+**만약, AWS가 제공하는 워크샵에 참여하시는 중이시라면 아래 가이드에 따라 진행 하십시오.**
 
-1\. 맨 먼저 에디슨 보드를 설정해야 합니다. [인텔 에디슨 설정 가이드](https://software.intel.com/en-us/articles/assemble-intel-edison-on-the-arduino-board)를 통해 하실 수 있습니다. 본 가이드는 Node.js를 에디슨에서 사용할 수 있도록 Intel® XDK for IoT(이하, XDK)를 통합 개발 환경(IDE)로 설치하는 것입니다.
+1\. 먼저 에디슨 보드를 설정해야 합니다. [인텔 에디슨 설정 가이드](https://software.intel.com/en-us/articles/assemble-intel-edison-on-the-arduino-board)를 통해 하실 수 있습니다. 단, 본 워크샵에서 제공되는 보드는 이미 설정이 완료 되어 있으므로 아래 단계를 따라 가시기 바랍니다.
+
+* 에디슨 보드를 2개의 USB 케이블을 통해 자신의 PC에 연결합니다. [연결 가이드](https://software.intel.com/en-us/node/628233)를 참고하실 수 있습니다.
+* Mac 사용자의 경우, 터미널에서 "screen /dev/tty.usbs"를 누르고, 탭을 눌러 자동 완성되는 디바이스 포트를 선택하고 ‘115200 -L’를 추가하고 접속합니다. 즉, **$ screen /dev/tty.usbs.A129828F 115200 -L** 형식입니다.
+* PC 사용자의 경우, Putty를 다운로드 한 후, "serial" 연결을 선택 하고, 장치 관리자에서 자동으로 추가된 COM 포트 숫자와 접속 속도 115200을 선택하고 접속합니다. 
+* 접속이 되면, ID에 root라고 치고, 암호 없이 접속이 가능합니다.
+* 에디슨의 Wi-Fi 설정을 위해 **$ confiture_edision --wi-fi**를 통해 인터넷 접속을 진행합니다.
 
 2\. Grove PIR Motion Sensor를 보드의 D6에 연결합니다.
 
-3\. Github 레포지터리의 'zombieIntelEdisonCode' 폴더에서 소스 코드를 모두 로컬 PC에 다운로드합니다. main.js 파일(애플리케이션)과 package.json (의존성 라이브러리) 파일로 구성되어 있습니다.
+3\. Github 레포지터리의 'zombieIntelEdisonCode' 폴더에서 소스 코드를 모두 에디슨에 다운로드합니다. main.js 파일(애플리케이션)과 package.json (의존성 라이브러리) 파일로 구성되어 있습니다. **wget**을 이용하여 Github 레포지터리에서 raw file을 바로 다운로드 하시면 됩니다. 
 
-4\. XDK로 가서 새로운 프로젝트를 시작합니다.
+3\. 이제 Node.js 앱에서 필요한 라이브러리를 설치합니다. main.js가 위치한 디렉토리에서 **$npm install**을 입력합니다. 몇 분 정도가 걸릴 수 있으며, 경고가 나오더라도 조금 기다리면 됩니다. 기다리는 동안 아래 4번을 진행하세요.
 
-5\. 기존 Node.js 프로젝트 가져오기를 선택한 후, 레포지터리에서 가져온 프로젝트 파일 폴더를 선택합니다. 
+4\. IAM 사용자 Access Key와 Secret Access Keys를 만들어서 SNS 토픽 메시지를 제공해야 합니다. [IAM 사용자 생성 가이드](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)를 참고하시기 바랍니다. 
 
-6\. 프로젝트명을 입력합니다. 예) **zombieSensor**.
+* AWS 관리 콘솔의 [IAM User](https://console.aws.amazon.com/iam/home?#users)에 가신 후, **Create New Users**를 누른 후, "zombiesns"라는 사용자를 만듭니다. **Generate an access key for each user**를 체크한 상태에서, **Create** 버튼을 누르면, 자동으로 인증키들이 만들어져 "credential.csv" 파일로 다운로드 가능합니다.
 
-7\. 이제 main.js를 잠깐 설정합니다. 여기에는 AWS 키 정보와 SNS 토픽 정보가 필요합니다.
-
-8\. 에디슨에서 사용할 IAM 사용자 Access Key와 Secret Access Keys를 만들어서 SNS 토픽 메시지를 제공해야 합니다. [IAM 사용자 생성 가이드](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)를 참고하시기 바랍니다. IAM 사용자 생성 시, IAM policy는 다음과 같이 하면 됩니다.
+* 이제, 생성된 "zombiesns" 사용자에게 SNS 사용 권한을 설정해야 합니다. IAM 사용자 관리 화면에서 zombiesns를 선택하고, **Permissions** 탭을 누르고, Managed Policies에서 Inline Policies를 눌러 **click here**를 선택하고, **Custom Policy**에서 아래 정책 코드를 입력합니다.
 
 ```
 {
@@ -657,31 +661,25 @@ Intel Edison -> SNS topic -> 토픽에 트리거 된 AWS Lambda 함수
 }
 ```
 
-9\. 자 이제, AWS 키 정보, 리전 정보, SNS 토픽 정보를 클라이언트 프로그램인 main.js 파일에 모두 설정합니다. 
+5\. 자 이제, AWS 키 정보, 리전 정보, SNS 토픽 정보를 클라이언트 프로그램인 main.js 파일에 모두 설정합니다. 
 
 ``` 
 AWS.config.update({accessKeyId: 'ENTER ACCESSKEY HERE', secretAccessKey: 'ENTER SECRET ACCESS KEY HERE', region: 'ENTER REGION HERE'}); 
 ```
 
-10\. 아래는 SNS 토픽이 만든 리전을 입력합니다. (예: us-west-2)
+6\. 아래는 SNS 토픽이 만든 리전을 입력합니다. (예: us-west-2)
 
 ``` 
 var sns = new AWS.SNS({region: 'ENTER REGION HERE'}); 
 ```
 
-11\. 아래는 SNS 토픽에서 만든 ARN 주소를 붙여 넣습니다.
+7\. 아래는 SNS 토픽에서 만든 ARN 주소를 붙여 넣습니다.
 
 ``` 
 TopicArn: "ENTER YOUR SNS TOPIC ARN HERE" 
 ```
 
-12\. 이제 인텔 에디슨 기기에 XDK를 연결합니다.  [XDK 시작하기](https://software.intel.com/en-us/getting-started-with-the-intel-xdk-iot-edition)의 'Connect to your Intel® IoT Platform'를 참고하세요.
-
-13\. 이제 기기로 여러분의 앱을 보낼 수 있습니다. XDK에 있는 해머 처럼 생긴 아이콘을 누르면 배포가 가능하며, 몇 분 정도 걸릴 수 있습니다.
-
-14\. 일단 앱을 배포하고 나면, 에디슨 보드는 초록색 불이 깜박입니다.
-
-15\. 여러분의 앱이 에디슨 기기에서 실행되면 SNS 토픽을 게시합니다. AWS Lambda 함수에서 이들 메시지를 받아서 처리를 합니다. 좀 더 자세한 부분은 [기술 문서](http://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html)를 참고하시고, SNS 알림과 채팅 애플리케이션을 연동해 보겠습니다. 
+8\. 이제 여러분의 앱이 에디슨 기기에서 실행되면 SNS 토픽을 게시합니다. AWS Lambda 함수에서 이들 메시지를 받아서 처리를 합니다. 좀 더 자세한 부분은 [기술 문서](http://docs.aws.amazon.com/sns/latest/dg/sns-lambda.html)를 참고하시고, SNS 알림과 채팅 애플리케이션을 연동해 보겠습니다. 
 
 ####SNS 토픽 메시지 채팅앱에 연동하기
 
@@ -708,7 +706,7 @@ Lambda 함수 편집기에 붙여 넣을 때, 소스 코드 상의 몇 가지 �
 
 7\. Review 페이지에서 **Create function**를 선택합니다.
 
-8\. 이제 모두 마쳤습니다. 함수를 만들고 나서 생존자 채팅앱에는 어떤 알림이 오게 됩니다. 만약 로그아웃 되었다면, 다시 로그인 해보시기 바랍니다.  
+8\. 이제 에디슨 보드로 돌아가서 Node.JS 앱을 실행 해 봅니다. **$ node main.js**를 실행하고, 모션 센서에 손을 가져다 되면 생존자 채팅앱에는 알림이 오게 됩니다. 만약 로그아웃 되었다면, 다시 로그인 해보시기 바랍니다.  
 
 * 인텔 에디슨 보드와 연결된 모션 센서에서 만든 SNS 토픽이 발생 될 때 마다 생존자 채팅앱에 알림이 전달 됩니다. 같은 SNS 토픽에 가입한 모든 생존자는 같은 알림을 받을 수 있습니다.  
 

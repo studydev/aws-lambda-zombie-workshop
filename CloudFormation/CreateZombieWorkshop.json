@@ -42,7 +42,7 @@
       "ap-northeast-2": {
         "S3Endpoint": "https://s3-ap-northeast-2",
         "S3ContentsBucket": "aws-zombie-workshop-ap-northeast-2",
-        "CognitoRegion": "us-east-1"
+        "CognitoRegion": "ap-northeast-2"
       },
       "ap-southeast-1": {
         "S3Endpoint": "https://s3-ap-southeast-1",

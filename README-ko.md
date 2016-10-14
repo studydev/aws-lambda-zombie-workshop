@@ -636,7 +636,7 @@ Intel Edison -> SNS topic -> 토픽에 트리거 된 AWS Lambda 함수
 * Mac 사용자의 경우, 터미널에서 "screen /dev/tty.usbs"를 누르고, 탭을 눌러 자동 완성되는 디바이스 포트를 선택하고 ‘115200 -L’를 추가하고 접속합니다. 즉, **$ screen /dev/tty.usbs.A129828F 115200 -L** 형식입니다.
 * PC 사용자의 경우, Putty를 다운로드 한 후, "serial" 연결을 선택 하고, 장치 관리자에서 자동으로 추가된 COM 포트 숫자와 접속 속도 115200을 선택하고 접속합니다. 
 * 접속이 되면, ID에 root라고 치고, 암호 없이 접속이 가능합니다.
-* 에디슨의 Wi-Fi 설정을 위해 **$ confiture_edision --wi-fi**를 통해 인터넷 접속을 진행합니다.
+* 에디슨의 Wi-Fi 설정을 위해 **$ configure_edison --wifi**를 통해 인터넷 접속을 진행합니다.
 
 2\. Grove PIR Motion Sensor를 보드의 D6에 연결합니다.
 

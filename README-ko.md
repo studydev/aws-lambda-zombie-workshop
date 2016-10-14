@@ -115,11 +115,11 @@ Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **u
 
 **Next Step**을 선택하세요.
 
-6\. Policies페이지에서 암호 정책 설정은 기본 값으로 두고 그냥 **Next step**을 클릭합니다.
+6\. Policies 페이지에서 암호 정책 설정은 기본 값으로 두고 그냥 **Next step**을 클릭합니다.
 
-7\. Verifications 페이지에서 위의 두 섹션은 그냥 기본값으로 두고, **Do you want to customize your email verification message?**이라는 제목의 영역으로 스크롤 합니다.
+7\. Verifications 페이지는 기본 값으로 두고 그냥 **Next step**을 클릭합니다. Message Customizations 페이지에서 **Do you want to customize your email verification message?** 이라는 제목의 영역을 수정할 것입니다.
 
-맞춤 이메일 제목 항목에 "Signal Corps Survivor Confirmation"이라고 적습니다. 메일 본문 부분은 수정하지 않고 여러분이 원하는 부분이 있으면 입력합니다. 이제 Cognito가 이메일을 보내게 되며, 실제 정식 서비스 환경에서는 여러분의 이메일 서버를 통해 보낼 수도 있습니다.
+Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니다. 메일 본문 부분은 수정하지 않고 여러분이 원하는 부분이 있으면 입력합니다. 이제 Cognito가 이메일을 보내게 되며, 실제 정식 서비스 환경에서는 여러분의 이메일 서버를 통해 보낼 수도 있습니다.
 
  **Next step**을 클릭합니다.
 
@@ -187,7 +187,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * The Identity Pool Id는 CloudFormation 템플릿을 실행했을 때, 다른 몇 가지 변수와 함께 자동으로 채워집니다.
 
-20\. 이제 constants.js를 저장하고, S3로 다시 업로드를 합니다. 콘솔에서 푸른색 **Upload** 버튼을 눌러 로컬 PC에서 파일을 선택해서 업로드하면 됩니다. 이제 **"Set Details->SetPermissions"을 선택하고, "Make everything public"를 체크합니다**. 그리고 난 후, **Start Upload**를 눌러 기존 파일을 덮어쓰면 됩니다. 정확한 폴더에 업로드를 했는지 한번 더 확인해 보시기 바랍니다.
+20\. 이제 constants.js를 저장하고, S3로 다시 업로드를 합니다. 콘솔에서 푸른색 **Upload** 버튼을 눌러 로컬 PC에서 파일을 선택해서 업로드할 것입니다. Upload 창 아래의 **"Set Details->SetPermissions"을 선택하고, "Make everything public"를 체크합니다**. 그리고 난 후, **Start Upload**를 눌러 기존 파일을 덮어쓰면 됩니다. 정확한 폴더에 업로드를 했는지 한번 더 확인해 보시기 바랍니다.
 
 * 이제 Congnito에 대한 설정은 모두 마쳤습니다.
 
@@ -223,7 +223,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 **실습 소개**
 
-본 실습에서는 생존자가 현재 채팅룸에서 입력하고 있는 것을 볼 수 있는 기능을 추가합니다. 이를 위해서 간단하게 API를 만들고 Lambda 함수를 통해 타이핑하는 메타 데이터를 DynamoDB 테이블로 보내어 상세 정보를 저장합니다. 생존자 채팅 앱은 API 엔드 포인트에서 주기적으로 데이터를 가져와서 누가 타이핑하고 잇는지 확인합니다. 본 기능은 웹 채팅 클라이언트의 채팅 메시지 패널 아래에 표시됩니다. 본 실습 절차는 UI 및 백엔드 Lambda 함수가 구현을 하고 이를 API Gateway로 연동하는데 초점을 맞추고 있습니다.  
+본 실습에서는 생존자가 현재 채팅룸에서 입력하고 있는 것을 볼 수 있는 기능을 추가합니다. 이를 위해서 간단하게 API를 만들고 Lambda 함수를 통해 타이핑하는 메타 데이터를 DynamoDB 테이블로 보내어 상세 정보를 저장합니다. 생존자 채팅 앱은 API 엔드 포인트에서 주기적으로 데이터를 가져와서 누가 타이핑하고 있는지 확인합니다. 본 기능은 웹 채팅 클라이언트의 채팅 메시지 패널 아래에 표시됩니다. 본 실습 절차는 UI 및 백엔드 Lambda 함수로 구현을 하고 이를 API Gateway로 연동하는데 초점을 맞추고 있습니다.  
 
 애플리케이션은 [CORS](http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) 기능을 사용하며, CORS 기능을 켜서 Lambda 함수 및 백엔드 연동이 가능하도록 합니다.  
 
@@ -238,7 +238,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 3\. 왼쪽 API 목록 중 /zombie/talkers/GET 메소드를 선택합니다. /zombie/talkers 리소스를 찾은 후 "GET" 메소드를 클릭하면 됩니다. 아래와 같이 표시됩니다.
 ![GET Method](/Images/Typing-Step3.png)
 
-*본 GET HTTP 메소드는 생존자 채팅앱에서 주기적으로 DynamoDB talkers 테이블에 자동으로 데이터를 보내기 위한 API 입니다.*
+*본 GET HTTP 메소드는 생존자 채팅앱에서 어떤 유저가 타이핑 중인지 확인하기 위해 DynamoDB talkers 테이블에 주기적으로 쿼리하기 위한 API 입니다.*
 
 4\. **Integration Request** 박스를 클릭합니다.
 
@@ -291,7 +291,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 20\. "Actions" 박스를 클릭하고, 드롭다운에서 "Enable CORS"를 선택합니다.
 
-21\. 기존 값 대체하는 것에 Enable 및 Yes를 선택합니다. 아래와 같이 CORS 옵션에 모든 체크 부분에 녹색으로 보여야 합니다.
+21\. **Enable CORS and replace ...**을 누른 후, 다음 창에서 **Yes, replace existing value**를 눌러 기존의 설정을 변경합니다. 아래와 같이 CORS 옵션에 모든 체크 부분에 녹색으로 보여야 합니다.
 ![talker resource](/Images/Typing-Step21.png)
 
 * 만약, 모든 체크 마크가 녹색이 아니면 위에서 진행한 HTTP 상태 코드 200을 추가하는 과정에서 뭔가 누락된 것입니다. 위의 단계를 다시 확인하셔서 POST, GET, OPTIONS 메소드의 200 상태 코드를 추가하세요.
@@ -353,7 +353,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * 워크샵을 진행하면서 느끼시다시피, /zombie/message 리소스에 표준화된 호출을 보내기 전에 데이터를 전처리하는 Lambda 함수를 항상 만들고 있습니다. 이를 통해 여러 함수를 만들어 DB 작업을 하는 대신 기존 DynamoDB 로직을 재활용할 수 있습니다. Twilio 번호로 메시지가 들어오면 Twilio Webwook이 /zombie/twilio 리소스로 POST를 보내고, 백엔드 데이터 처리 Lambda 함수와 연결됩니다. 이 함수는 Twilio 데이터를 분리해서 IAM 권한이 필요한 /zombie/message/로 SigV4 HTTPS 호출 데이터를 만듭니다.
 
-12\. **Create a Lambda function**를 선택 한후, 예제 코드 화면에서 **Skip**을 눌러 새 함수를 만듭니다. 트리거 설정 화면에서도 **Next**를 눌러 건너뜁니다.
+12\. **Create a Lambda function**를 선택한 후, 왼쪽 메뉴에서 **Configure function**을 선택합니다.
 
 13\. 이제 함수명에는 **"[Your CloudFormation stack name]-TwilioProcessing"**라고 적고, "Runtime"은 **Node.js 4.3**을 선택합니다. 이제 Github 레포지터리에서 **TwilioProcessing.js** 파일을 찾아서 전체 코드를 복사한 후, Lambda 코드 에디터에 붙여넣습니다. 코드 중에서 [line 8](/Twilio/TwilioProcessing.js#L8)에는 몇 가지 "API" 환경 변수들을 선언해야 합니다. API.endpoint는 "INSERT YOUR API GATEWAY URL HERE INCLUDING THE HTTPS://"라고 적혀 있는데, 여기에 API Gateway의 전체 도메인 명을 넣습니다. 예를 들어, "https://xxxxxxxx.execute-api.us-west-2.amazonaws.com"의 형식입니다.
 
@@ -373,7 +373,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 17\. **Method Execution** 스크린의 "POST" 메소드에서 "Integration Request" 박스가 /twilio 리소스에 대해 **MOCK**의 형식으로 보여야 합니다.
 
-18\. Lambda 함수와 Mock integration을 하기 위해서는 **Integration Request**를 바꾸어야 합니다. **Integration Request**을 클릭 한후, 화면에서 "Integration type" 라디오 버튼을 **Lambda Function**로 선택합니다. "Lambda Region"에서 드롭다운을 해서 CloudFormation 작업 및 TwilioProcessing Lambda 함수를 만든 리전을 선탷합니다. **Lambda Function** 이름에서는 "TwilioProcessing"를 치면, 우리가 만든 함수가 자동완성됩니다. **TwilioProcessing** 함수를 선택 한 후, **Save** 버튼을 누립니다. 팝업창에서 Lambda 함수 연계에 대해 **OK**를 누릅니다. 그런 다음, API Gateway 접근 권한에 대해 확인을 하고 **OK**를 누릅니다. 몇 초 정도 지나면 완료됩니다. 
+18\. Lambda 함수와 Mock integration을 하기 위해서는 **Integration Request**를 바꾸어야 합니다. **Integration Request**을 클릭 한후, 화면에서 "Integration type" 라디오 버튼을 **Lambda Function**로 선택합니다. "Lambda Region"에서 드롭다운을 해서 CloudFormation 작업 및 TwilioProcessing Lambda 함수를 만든 리전을 선택합니다. **Lambda Function** 이름에서는 "TwilioProcessing"를 치면, 우리가 만든 함수가 자동완성됩니다. **TwilioProcessing** 함수를 선택 한 후, **Save** 버튼을 누립니다. 팝업창에서 Lambda 함수 연계에 대해 **OK**를 누릅니다. 그런 다음, API Gateway 접근 권한에 대해 확인을 하고 **OK**를 누릅니다. 몇 초 정도 지나면 완료됩니다. 
 
 19\. **Save**을 누른 후, "POST" 메소드에 대한 Method Execution 페이지로 옵니다. 맵핑 템플릿을 설정하기 위해  **Integration Request**를 합니다. Method Execution 화면에서 **Integration Request**를 누릅니다.
 
@@ -392,7 +392,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 23\. Twilio API는 응답 받는 Content-Type을 XML로 받아야 하기 때문에 응답 데이터 변환을 위해 Integration Response 설정을 해야 합니다. SMS 메시지를 받아 채팅 서비스로 보내고 나서, 메시지를 잘 받았다고 Twilio에 응답 결과를 보내야 하기 때문에 필요합니다.
 
-24\. twilio POST 메소드의 Method Execution 화면으로 갑니다. 여기서 **Integration Response**를 누릅니다.  "Integration Response"에서 메소드 응답 영역을 보이게 하기 위해 검은 화살표를 누릅니다.  **Body Mapping Templates** 영역을 확장하면, Content-Type이 "application/json"라고 보입니다. Content-Type을 XML로 바꾸기 위해 **delete this Content-Type by clicking the little black minus icon**를 누르고, 팝업창에서 **Delete**를 선택합니다.
+24\. twilio POST 메소드의 Method Execution 화면으로 갑니다. 여기서 **Integration Response**를 누릅니다.  "Integration Response"에서 메소드 응답 영역을 보이게 하기 위해 검은 화살표를 누릅니다.  **Body Mapping Templates** 영역을 확장하면, Content-Type이 "application/json"라고 보입니다. Content-Type을 XML로 바꾸기 위해 먼저 **까만 마이너스(-) 아이콘**을 눌러 Content-Type을 지우고, 팝업창에서 **Delete**를 선택합니다.
 
 25\. **Add mapping template**을 눌러 이전에 했던 Integration Request에서 했던 방식과 유사하게 진행합니다.
 
@@ -456,9 +456,9 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 10\. **Create a Lambda Function**를 선택합니다. 
 
-11\. 샘플 예제 부분은 "Skip" 버튼을 눌러 건너 뜁니다.
+11\. 왼쪽 메뉴에서 **Configure triggers**를 선택합니다.
 
-12\. Triggers 설정 부분에서는 DynamoDB event source type을 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"**로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.  
+12\. Triggers 설정 부분에서는 DynamoDB를 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"**로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.  
 
 13\. 함수명은 **"[Your CloudFormation stack name]-ESsearch"**와 같이 넣으시고, Runtime은 Node.js 4.3를 선택합니다. 설명은 간단히 원하는대로 입력하셔도 됩니다. 
 
@@ -498,7 +498,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 1\. 맨 먼저 [http://www.slack.com](http://www.slack.com)으로 가서 사용자명을 만들고 팀을 생성합니다. (가급적, 맨처음 가입 시 사용한 Slack 정보로 만듭니다.)
 
-2\. Slack에 가입 후 로그인 하고 나면, [https://slack.com/apps](https://slack.com/apps)에서 상단에 **Build your own**을 선택합니다. 다음 화면에서 **Make a Custom Integration**를 클릭합니다.
+2\. Slack에 가입 후 로그인 하고 나면, [https://slack.com/apps](https://slack.com/apps)에서 상단에 **Build**를 선택합니다. 다음 화면에서 **Make a Custom Integration**를 클릭합니다.
 
 3\. "Custom Integration"페이지에서, 새로 만들 **Slash Commands**를 선택합니다. Slack 명령어는 채팅 창에서 외부 소스로 메시지 혹은 명령을 전달할 수 있도록 하기 위한 설정입니다. Slack 명령어가 설정되면 이는 외부로 POST 호출을 하게 되고, 이는 우리의 API Gateway를 호출하도록 할 수 있습니다.  
 

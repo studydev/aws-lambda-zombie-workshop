@@ -129,7 +129,7 @@ Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니�
 
 9\. Apps 페이지에서는 **Add an app**을 선택합니다. **App Name** 텍스트 박스에서는 "Zombie Survivor Chat App"이라고 적고, **client secret 체크박스를 선택하지 않습니다.**. 그리고, **Set attribute read and write permissions**을 선택합니다. 앱에서 맞춤형 속성 값에 "writable" 접근 권한을 주어야 합니다. **Writable Attributes** 체크 박스에 **custom:slackuser, custom:slackteamdomain, custom:camp** 체크를 하고, 나머지는 그대로 둔 상태에서 **Create App**을 누르고, **Next step**을 선택합니다.
 
-10\. (중요) 여러 박스 중에 **Pre authentication** 와 **Post confirmation** 의 드롭다운 메뉴에서 "[Your CloudFormation Stack name]-CognitoLambdaTrigger"라는 Lambda 함수를 선택한 후, **Next step**을 누릅니다.
+10\. (중요) 여러 박스 중에 **Pre authentication** 와 **Post confirmation** 의 드롭다운 메뉴에서 "[Your CloudFormation Stack name]-CognitoLambdaTrigger-리전코드"라는 Lambda 함수를 선택한 후, **Next step**을 누릅니다.
 
 * Cognito User Pools을 통해 개발자들은 사용자 가입 및 로그인 과정에서 맞춤형 진행 방식을 구현할 수 있습니다. 이러한 워크플로 로직은 Lambda Trigger를 통한 AWS Lambda 함수를 사용할 수 있습니다.
 
@@ -416,7 +416,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 27\. 이제 스크롤을 위래 올려서 푸른색 **Save** 버튼을 누립니다. 마지막으로 API Gateway 콘솔의 왼쪽의 **Actions** 버튼을 누르고, API 배포를 위해 **Deploy API**를 선택합니다. API 배포 창에서는 드롭다운에서 **ZombieWorkshopStage**를 선택한후, **Deploy**를 누릅니다.
 
-28\. 이제 여러분은 Twilio와 여러분의 API로 통합을 완료했습니다. Twilio 전화 번호로 이제 문자 메시지를 날려 보세요. (주의: 미국 번호인 경우, SMS 전송 비용이 발생할 수 있습니다.)
+28\. 이제 여러분은 Twilio와 여러분의 API로 통합을 완료했습니다. Twilio 전화 번호로 이제 문자 메시지를 보내시면, 채팅창에 전달이됩니다. (주의: 미국 번호인 경우, SMS 전송 비용이 발생할 수 있습니다. 메시지를 보낼 때는, 국제 문자 보내는 것과 같이 +를 누르고 보내시면 됩니다. 또한, 채팅 애플리케이션은 여러분의 진짜 전화 번호인지를 필터링 합니다. 따라서, DynamoDB의 사용자 테이블의 전화 번호를 바꾸실 필요가 있습니다. DynamoDB 콘솔 화면에서, 왼쪽 메뉴의 Table을 선택 하신 후, **[Your-stack-name]-users** 테이블을 선택하고, **Items** 탭을 선택 합니다. 등록한 아이디의 전화번호(미국 번호)를 여러분의 휴대폰 번호로 수정하려면, phone 필드를 선택해 연필 아이콘을 눌러 수정하실 수 있습니다. 문자 메시지 내용이 도착하지 않는 경우, 로그아웃 후 다시 로그인 해보시기 바랍니다.) 
 
 **LAB 2 실습 종료**
 
@@ -454,11 +454,11 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 9\. 관리 콘솔에서 Lambda 아이콘을 눌러 Lambda 서비스로 들어갑니다.
 
-10\. **Create a Lambda Function**를 선택합니다. 
+10\. **Create a Lambda Function**를 선택합니다.
 
-11\. 왼쪽 메뉴에서 **Configure triggers**를 선택합니다.
+11\. **Blank Function 박스**를 선택합니다..
 
-12\. Triggers 설정 부분에서는 DynamoDB를 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"**로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.  
+12\. **Configure Triggers** 설정 부분에서는 DynamoDB를 선택하고, **messages**라는 DynamoDB table을 선택합니다. 아마 **"[Your CloudFormation stack name]-messages"**로 보일 것입니다. **Batch size**를 **5**로 설정하고, **Starting position**을 **Lastest**로 선택하고, **Enable trigger** 체크박스를 선택합니다.이제 "Next" 버튼을 누릅니다.  
 
 13\. 함수명은 **"[Your CloudFormation stack name]-ESsearch"**와 같이 넣으시고, Runtime은 Node.js 4.3를 선택합니다. 설명은 간단히 원하는대로 입력하셔도 됩니다. 
 
@@ -510,7 +510,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 7\. **Create a Lambda function**를 눌러서 Slack 메시지를 받아서 채팅창으로 보낼 새로운 Lambda 함수를 만듭니다.
 
-8\. 앞에서와 같이 예제 코드 부분은 건너뛰고, 트리거 설정 부분도 **Next**를 눌러 건너뜁니다.
+8\. 왼쪽 메뉴의 **Configure function**을 선택합니다.
 
 9\. 함수 이름은 **"[Your CloudFormation Stack name]-SlackService"** 정도로 넣은 다음, Nodejs 버전은 Nodejs 4.3을 선택한 상태에서, Github 레포지터리로 이동합니다.
 
@@ -687,7 +687,7 @@ TopicArn: "ENTER YOUR SNS TOPIC ARN HERE"
 
 1\. Lambda 콘솔에서 **Create a Lambda function**를 누릅니다.
 
-2\. 샘플 코드 화면은 **Skip**를 누릅니다.
+2\. 샘플 코드 화면은 **Blank Function 박스**를 누릅니다.
 
 3\. 트리거 설정 화면 (**Configure Triggers**)에서는 이벤트 소스로서 Simple Notification Service를 선택합니다.
 

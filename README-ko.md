@@ -338,6 +338,7 @@ Twilio는 전화 번호 목록을 제공하고, 이 중에서 번호를 선택�
 *대부분은 미국 번호입니다. 해외 번호를 받으실 수도 있습니다만 서비스 약관 상 비용 부가가 있을 수 있습니다. 자세한 것은 웹 사이트를 참고하시기 바랍니다.*
 
 4\. 일단 전화 번호를 받게 되면, 왼쪽에 **Manage Numbers** 버튼을 눌러 번호의 속성 정보를 얻기 위해 전화 번호를 클릭합니다.
+![Select Phone Number](/Images/Twilio-phone-number-04.png)
 
 5\. 아래로 스크롤을 내려 보면, **Messaging** 영역의 **Configure With** 드롭다운 항목에서 **Webhooks/TwiML** 옵션을 선택합니다. 일단, 웹 페이지를 그대로 두고 다음 단계로 넘어갑니다.
 
@@ -353,7 +354,7 @@ Twilio는 전화 번호 목록을 제공하고, 이 중에서 번호를 선택�
 ![API Gateway Invoke URL](/Images/Twilio-Step8.png)
 
 9\. **Invoke URL**을 복사 한 후, Twilio 웹 페이지로 되돌아 입니다. 복사한 URL 주소를 **A message comes in**라는 텍스트 박스에 붙여 넣습니다. 그런 다음, 아래와 같이 호출 타입을 **HTTP POST**로 선택합니다.
-![Twilio Request URL](/Images/Twilio-Step9.png)
+![Twilio Request URL](/Images/Twilio-phone-number-05.png)
 
 10\. 마지막 설정을 위해 **Save** 버튼을 누리면, Twilio API와 연결 설정이 끝납니다.
 

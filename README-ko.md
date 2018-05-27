@@ -327,10 +327,13 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 1\. Twilio 회원 가입을 합니다.  https://www.twilio.com/try-twilio. (계정이 있으시면 로그인합니다.)
 
-2\. 가입이 완료되었으면, 로그인을 한 후 오른쪽 홈 아이콘을 눌러 콘솔 대시 보드 페이지로 갑니다. 맨 밑으로 스크롤을 내려  **Phone Numbers** 항목에서 "Phone Numbers"를 선택합니다.
-![Manage Twilio Phone Number](/Images/Twilio-Step2.png)
+2\. 가입이 완료되었으면, 로그인을 한 후 콘솔 대시 보드 페이지로 갑니다. 좌측 메뉴를 클릭하고 **Phone Numbers** 핀을 활성화 합니다.
+![Manage Twilio Phone Number](/Images/Twilio-phone-number-01.png)
 
-3\. 전화 번호 부분의 "Get Started"를 눌러, 계정에 전화 번호를 연결합니다.  붉은색의 "Get your first Twilio phone number" 버튼을 누르면, 우리가 실습에서 사용할 10자리의 전화 번호를 생성합니다. 기본적으로 음성 및 메시지가 가능해야 하기 때문에, 전화 번호에 대해 팝업창이 열리면 메시지 사용을 할 수 있게 설정하고 "Choose this number"를 선택하고, 다음 단계로 갑니다. 만약 전화 번호가 메시징을 지원하지 않으면, "Search for a different number"를 누르고, 국가 및 "SMS"를 선택한 후, "Search"를 합니다. Twilio는 전화 번호 목록을 제공하고, 이 중에서 번호를 선택하고 "Choose number"를 한 후, 간단하게 주소를 입력하고 "Save and continue" 및 "Done"을 설정합니다.
+3\. **Phone Numbers** 메뉴로 이동하고, "Buy a Number"를 눌러, 미국 전화 번호를 하나 생성합니다. Country는 "United States (+1)"을 선택하고 Number는 302(DE 기준) 및 "SMS"와 "MMS"를 선택한 후, "Search"를 합니다.
+![Manage Twilio Phone Number](/Images/Twilio-phone-number-02.png)
+Twilio는 전화 번호 목록을 제공하고, 이 중에서 번호를 선택하여 **Buy** 버튼을 클릭합니다. 내용을 확인 한 후에, 우측 하단의 "Buy This Number" 버튼을 클릭하고 구매 내역을 확인합니다.
+![Manage Twilio Phone Number](/Images/Twilio-phone-number-03.png)
 
 *대부분은 미국 번호입니다. 해외 번호를 받으실 수도 있습니다만 서비스 약관 상 비용 부가가 있을 수 있습니다. 자세한 것은 웹 사이트를 참고하시기 바랍니다.*
 

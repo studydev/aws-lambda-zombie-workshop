@@ -200,6 +200,10 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 23\. 주어진 가입 양식을 채워넣습니다. 단, 회원 가입 시 전화 번호에 대한 번호 인증이 진행됩니다. 따라서, 유효한 전화번호를 입력할 때는 **미국 전화 번호**인 10자리 (예: 3025853214)를 넣으셔야 합니다. 성공적인 Lab 진행을 위해서 SMS를 지원하는 미국 전화 번호가 사전에 필요합니다. 따라서, 여기서는 SMS를 발송하기 위한 대안으로써 https://www.textnow.com 에 접속하여 자신만의 미국 전화 번호를 하나 생성하고, 해당 번호를 여기에 입력합니다.
 
+![TextNow signup](/Images/Textnow-signup-01.png)
+![TextNow DE_local](/Images/Textnow-signup-02.png)
+![TextNow get_phone_number](/Images/Textnow-signup-03.png)
+
 * **Select your Camp**: 여러분이 살고 있는 지역을 입력합니다. 본 애플리케이션에서 현재 속성은 사용되지 않지만, 향후에 추가적으로 사용할 수 있습니다. 워크샵 실습을 종료한 후 부록에 있는 별도 도전 사항을 시도해 보시기 바랍니다.
 
 * **Slack Username**: 슬랙 실습 과정에서 사용할 슬랙 사용자명을 입력합니다. 만약 슬랙에 가입한 이메일 주소가 studydev@gmail.com 일 경우에는 Username은 studydev가 됩니다.

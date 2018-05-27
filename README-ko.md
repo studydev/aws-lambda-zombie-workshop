@@ -188,7 +188,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 * The Identity Pool Id는 CloudFormation 템플릿을 실행했을 때, 다른 몇 가지 변수와 함께 자동으로 채워집니다.
 
-20\. 이제 constants.js를 저장하고, S3로 다시 업로드를 합니다. 콘솔에서 푸른색 **Upload** 버튼을 눌러 로컬 PC에서 파일을 선택해서 업로드할 것입니다. Upload 창 아래의 **"Set Details->SetPermissions"을 선택하고, "Make everything public"를 체크합니다**. 그리고 난 후, **Start Upload**를 눌러 기존 파일을 덮어쓰면 됩니다. 정확한 폴더에 업로드를 했는지 한번 더 확인해 보시기 바랍니다.
+20\. 이제 constants.js를 저장하고, S3로 다시 업로드를 합니다. 콘솔에서 푸른색 **Upload** 버튼을 눌러 로컬 PC에서 파일을 선택해서 업로드할 것입니다. Upload 팝업 창이 나오면 **Add files** 버튼을 클릭해서 수정한 파일을 선택합니다. 우측 하단의 Next를 클릭하고, **"Manage public Permissions"** 하단의 콤보박스를 **"Grant public read access to this object(s)"** 를 선택합니다. 그리고 난 후, 좌측 하단의 **Upload** 버튼을 클릭하고 기존 파일을 덮어쓰면 됩니다. 정확한 폴더에 업로드를 했는지 한번 더 확인해 보시기 바랍니다.
 
 * 이제 Congnito에 대한 설정은 모두 마쳤습니다.
 
@@ -198,7 +198,7 @@ Download the **S3/assets/js.constants.js** file to your local machine and open i
 
 22\. 이제 로그인 페이지가 보이면, **Sign Up** 버튼을 눌러 회원 가입을 해야 합니다.
 
-23\. 주어진 가입 양식을 채워넣습니다. 단, 회원 가입 시 전화 번호에 대한 번호 인증이 진행됩니다. 따라서, 유효한 전화번호를 입력할 때는 **미국 전화 번호**인 10자리 (예: 3025853214)를 넣으셔야 합니다. 성공적인 Lab 진행을 위해서 SMS를 지원하는 미국 전화 번호가 필요합니다. 따라서, 여기서는 https://www.textnow.com 에 접속하여 나만의 미국 전화 번호를 하나 생성하고, 해당 번호를 여기에 입력합니다.
+23\. 주어진 가입 양식을 채워넣습니다. 단, 회원 가입 시 전화 번호에 대한 번호 인증이 진행됩니다. 따라서, 유효한 전화번호를 입력할 때는 **미국 전화 번호**인 10자리 (예: 3025853214)를 넣으셔야 합니다. 성공적인 Lab 진행을 위해서 SMS를 지원하는 미국 전화 번호가 사전에 필요합니다. 따라서, 여기서는 SMS를 발송하기 위한 대안으로써 https://www.textnow.com 에 접속하여 자신만의 미국 전화 번호를 하나 생성하고, 해당 번호를 여기에 입력합니다.
 
 * **Select your Camp**: 여러분이 살고 있는 지역을 입력합니다. 본 애플리케이션에서 현재 속성은 사용되지 않지만, 향후에 추가적으로 사용할 수 있습니다. 워크샵 실습을 종료한 후 부록에 있는 별도 도전 사항을 시도해 보시기 바랍니다.
 

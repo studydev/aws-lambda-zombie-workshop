@@ -95,13 +95,13 @@ CloudFromation 만들 때, 이미 Cognito 통합 인증 서비스를 생성하�
 
 Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **us-east-1 (Virginia), us-west-2 (Oregon), eu-west-1 (Ireland), eu-central-1 (Frankfurt), ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ** 이외에서 CloudFormation을 실행하셨다면, 오른쪽 상단의 리전을 **us-east-1 (Virginia)**로 변경 후, Cognito 서비스로 들어가시기 바랍니다. 애플리케이션은 여러분이 만든 리전에 존재하고 있지만, 사용자 인증은 us-east-1의 Cognito 서비스를 이용하게 됩니다. 만약 위에 목록에 해당하는 리전에서 CloudFormation 스택을 실행하셨다면, 그 리전의 Cognito 서비스에서 진행하시면 됩니다. 
 
-콘솔에서 **Manage your User Pools**를 선택합니다. 이제 채팅 앱에서 사용할 사용자 디렉토리를 만들도록 하겠습니다. 
+콘솔에서 **Manage User Pools** 푸른 버튼을 선택합니다. 이제 채팅 앱에서 사용할 사용자 디렉토리를 만들도록 하겠습니다. 
 
 2\. 오른쪽 상단의 **Create a User Pool** 이라는 푸른 버튼을 클릭하여, 새 사용자 디렉토리를 만듭니다.
 
 3\. "Pool Name" 텍스트 상자에, **[Your CloudFormation stack name]-userpool**을 입력합니다. 예를 들어, CloudFormation 스택 이름이 "sample"이라고 하셨다면, "sample-userpool"이라고 하시면 됩니다. 이름을 넣으셨으면, **Step through Settings**을 선택합니다.
 
-4\. 속성 페이지에서  **email, name, phone number**을 필수 항목으로 체크합니다.
+4\. Attributes 페이지에서  **email, name, phone number**을 필수 항목으로 체크합니다.
 
 * Cognito User Pools에서는 여러분의 애플리케이션에서 이용할 사용자 정보 속성을 만들 수 있습니다. 이는 사용자가 가입을 할 때 입력을 해야 하는 정보이며, 사용자가 Cognito로 인증할 때, 애플리케이션이 세션 데이터에서 이를 활용 가능합니다.
 
@@ -117,7 +117,8 @@ Cognito User Pools은 모든 리전에서 제공되지 않습니다. 만약  **u
 
 6\. Policies 페이지에서 암호 정책 설정은 기본 값으로 두고 그냥 **Next step**을 클릭합니다.
 
-7\. Verifications 페이지는 기본 값으로 두고 그냥 **Next step**을 클릭합니다. Message Customizations 페이지에서 **Do you want to customize your email verification message?** 이라는 제목의 영역을 수정할 것입니다.
+7\. MFA and verifications 페이지는 기본 값으로 두고 그냥 **Next step**을 클릭합니다.
+    Message Customizations 페이지에서 **Do you want to customize your email verification message?** 이라는 제목의 영역을 수정할 것입니다.
 
 Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니다. 메일 본문 부분은 수정하지 않고 여러분이 원하는 부분이 있으면 입력합니다. 이제 Cognito가 이메일을 보내게 되며, 실제 정식 서비스 환경에서는 여러분의 이메일 서버를 통해 보낼 수도 있습니다.
 
@@ -125,9 +126,9 @@ Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니�
 
 * 본 애플리케이션에서 멀티 팩터 인증(MFA)은 사용하지는 않습니다. 다만, 회원 가입 시 이메일 주소를 통해 인증을 하게 됩니다. "Do you want to require verification of emails or phone numbers?"을 체크하게 되면, 사용자가 가입을 하면 확인 메일을 보내시, 링크를 클릭해야만 가입이 완료됩니다.  
 
-8\. Devices 페이지에서는 "No" 라는 기본 값을 그대로 둡니다. 사용자 기기에 저장하도록 설정하지 않는 것입니다.  
+8\. Tags 페이지에서는 **Next step**을 클릭하고, Devices 페이지에서는 "No" 라는 기본 값을 그대로 둡니다. 사용자 기기에 저장하도록 설정하지 않는 것입니다.  
 
-9\. Apps 페이지에서는 **Add an app**을 선택합니다. **App Name** 텍스트 박스에서는 "Zombie Survivor Chat App"이라고 적고, **client secret 체크박스를 선택하지 않습니다.**. 그리고, **Set attribute read and write permissions**을 선택합니다. 앱에서 맞춤형 속성 값에 "writable" 접근 권한을 주어야 합니다. **Writable Attributes** 체크 박스에 **custom:slackuser, custom:slackteamdomain, custom:camp** 체크를 하고, 나머지는 그대로 둔 상태에서 **Create App**을 누르고, **Next step**을 선택합니다.
+9\. App clients 페이지에서는 **Add an app client**을 선택합니다. **App client name** 텍스트 박스에서는 "Zombie Survivor Chat App"이라고 적고, **Generate client secret 체크박스를 선택하지 않습니다.**. 그리고, **Set attribute read and write permissions**을 선택합니다. 앱에서 맞춤형 속성 값에 "writable" 접근 권한을 주어야 합니다. **Writable Attributes** 체크 박스에 **custom:slackuser, custom:slackteamdomain, custom:camp** 체크를 하고, 나머지는 그대로 둔 상태에서 **Create app client**을 누르고, **Next step**을 선택합니다.
 
 10\. (중요) 여러 박스 중에 **Pre authentication** 와 **Post confirmation** 의 드롭다운 메뉴에서 "[Your CloudFormation Stack name]-CognitoLambdaTrigger-리전코드"라는 Lambda 함수를 선택한 후, **Next step**을 누릅니다.
 
@@ -143,9 +144,9 @@ Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니�
 
     * 본 워크샵에서 위의 두 가지 트리거를 위해 하나의 Lambda 함수를 사용합니다. 실행 할 때, 위의 두 가지 형태를 모드 체크해서 처리합니다. 더 자세한 것은 관련 Lambda 함수를 참고하시기 바랍니다.
 
-11\. 설정을 모두 검토 한 후, **Create pool**를 선택합니다. 사용자 풀이 성공적으로 만들어졌다면, 세부 항목 페이지로 돌아가야 합니다.
+11\. Review 페이지에서 설정을 모두 검토 한 후, **Create pool**를 선택합니다. 사용자 풀이 성공적으로 만들어졌다면, 세부 항목 페이지로 돌아가야 합니다.
 
-12\. PC의 텍스트 에디터를 열고, 세부 페이지의 **Pool Id**를 복사해 둡니다. 왼쪽 메뉴의 **Apps** 탭을 열면 보실 수 있는 **App client id** 를 또한 같이 복사해 둡니다. 
+12\. PC의 텍스트 에디터를 열고, 세부 페이지의 **Pool Id**를 복사해 둡니다. 왼쪽 메뉴의 **App clients** 탭을 열면 보실 수 있는 **App client id** 를 또한 같이 복사해 둡니다. 
 
 이제 User Pools는 모두 설정이 되었습니다. 이제 만들어진 Codnito Identity Pool로 통합하는 설정을 해보겠습니다.
 

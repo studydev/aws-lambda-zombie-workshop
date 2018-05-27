@@ -356,6 +356,9 @@ Twilio는 전화 번호 목록을 제공하고, 이 중에서 번호를 선택�
 9\. **Invoke URL**을 복사 한 후, Twilio 웹 페이지로 되돌아 입니다. 복사한 URL 주소를 **A message comes in**라는 텍스트 박스에 붙여 넣습니다. 그런 다음, 아래와 같이 호출 타입을 **HTTP POST**로 선택합니다.
 ![Twilio Request URL](/Images/Twilio-phone-number-05.png)
 
+추가적으로, twilio는 무료 사용자일 경우, 지정된 전화번호 문자에 대해서만 연결이 가능하다. 따라서, **Verified Caller IDs**에 TextNow에서 만든 전화번호를 등록하고 SMS 인증을 사전에 받는다.
+![Twilio Request URL](/Images/Twilio-phone-number-06.png)
+
 10\. 마지막 설정을 위해 **Save** 버튼을 누리면, Twilio API와 연결 설정이 끝납니다.
 
 11\. 이제 Twilio로 부터 들어오는 메시지를 받아서, 파싱한 다음 "/messages" 채팅 서비스로 보내는 작업을 할 Lambda 함수를 만들어 보겠습니다. 이제 AWS Lambda 관리 콘솔로 들어갑니다.

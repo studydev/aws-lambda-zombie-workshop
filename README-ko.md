@@ -1,4 +1,4 @@
-# Zombie Microservices Workshop: 실습 가이드 - 2018.05.28 서울 리전용
+# Zombie Microservices Workshop: 실습 가이드
 
 ## 개요
 [Zombie Microservices Workshop](http://aws.amazon.com/events/zombie-microservices-roadshow/)은 [AWS Lambda](http://aws.amazon.com/lambda/), Amazon Cognito, Amazon API Gateway, Amazon DynamoDB와 기타 AWS 서비스를 기반으로 서버 없는(Serverless) 애플리케이션을 구축해 보는 실습 행사입니다.

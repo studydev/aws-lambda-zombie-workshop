@@ -164,9 +164,9 @@ Email subject 항목에 "Signal Corps Survivor Confirmation"이라고 적습니�
 
 * 사용자가 애플리케이션으로 로그인 할 때, 인증된 사용자가 되고 애플리케이션은 메시지를 보낼 수 있는 권한을 얻게 됩니다.  
 
-15\. "Authenticated providers"라는 이름의 검은색 드롭다운 메뉴를 누릅니다. 우리가 만든 Identity pool을 Congnito User Pool 및 Identity Provider로 연동합니다. "Cognito" identity provider 탭을 선택하고, 이전에 복사해 둔 **User Pool ID** 및 **App Client ID**을 붙여 넣기 합니다. (이 두 가지 정보는 아래에서 설정할 때 필요하니 텍스트 에디터를 아직 열어두시기 바랍니다.혹시 아까 복사하지 않으셨다면, Cognito User Pool에 되돌아 가셔서 User Pool Id 및 App Client ID을 복사해 오시기 바랍니다.)
+15\. "Authentication providers"라는 이름의 검은색 드롭다운 메뉴를 누릅니다. 우리가 만든 Identity pool을 Congnito User Pool 및 Identity Provider로 연동합니다. identity provider로 "Cognito" 탭을 선택하고, 이전에 복사해 둔 **User Pool ID** 및 **App client id**을 붙여 넣기 합니다. (이 두 가지 정보는 아래에서 설정할 때 필요하니 텍스트 에디터를 아직 열어두시기 바랍니다.혹시 아까 복사하지 않으셨다면, Cognito User Pool에 되돌아 가셔서 User Pool Id 및 App client id을 복사해 오시기 바랍니다.)
 
-페이지 밑까지 스크롤을 하여 **Save Changes**을 누릅니다. 이제 Cognito User Pool을 Identity Pool과 연결하여, 사용자를 위한 보안 토큰을 앱에서도 사용할 수 있게 되었습니다. 
+페이지 밑까지 스크롤을 하여 우측 하단의 **Save Changes**을 누릅니다. 이제 Cognito User Pool을 Identity Pool과 연결하여, 사용자를 위한 보안 토큰을 앱에서도 사용할 수 있게 되었습니다. 
 
 16\. 자바스크립트 앱과 사용자 로그인한 User Pool과 연결하기 위해 애플리케이션 설정 파일을 업데이트 해야 합니다.  
 
